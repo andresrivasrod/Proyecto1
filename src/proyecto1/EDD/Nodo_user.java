@@ -8,46 +8,78 @@ package proyecto1.EDD;
  *
  * @author andresrivas
  */
-public class Nodo {
-    private User user;
-    private Nodo pNext;
+public class Nodo_user {
+    private Nodo_user siguiente;
+    private int posicion, x, y;
+    private String nombre;
+    private int id;
 
-    public Nodo(User user) {
-        this.user = user;
-        this.pNext = null;
+    public Nodo_user( int posicion, String nombre, int id) {
+        this.siguiente = null;
+        this.posicion = posicion;
+        this.nombre = nombre;
+        this.id = id;
     }
 
-    public Nodo(User user, Nodo nodo) {
-        this.user = user;
-        this.pNext = nodo;
+    public Nodo_user(int posicion, String nombre, int id, int x, int y) {
+        this.siguiente = null;
+        this.posicion = posicion;
+        this.x = x;
+        this.y = y;
+        this.nombre = nombre;
+        this.id = id;
     }
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
+    public Nodo_user getSiguiente() {
+        return siguiente;
     }
 
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
+    public void setSiguiente(Nodo_user siguiente) {
+        this.siguiente = siguiente;
     }
 
-    /**
-     * @return the pNext
-     */
-    public Nodo getpNext() {
-        return pNext;
+    public int getPosicion() {
+        return posicion;
     }
 
-    /**
-     * @param pNext the pNext to set
-     */
-    public void setpNext(Nodo pNext) {
-        this.pNext = pNext;
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public void enlazar_siguiente(Nodo_user siguiente) {
+        this.siguiente = siguiente;
     }
     
     
