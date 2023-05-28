@@ -10,7 +10,7 @@ package proyecto1.EDD;
  */
 public class Nodo_user {
     private Nodo_user siguiente;
-    private int posicion, x, y;
+    private int posicion;
     private String nombre;
     private int id;
 
@@ -35,22 +35,6 @@ public class Nodo_user {
 
     public void setPosicion(int posicion) {
         this.posicion = posicion;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public String getNombre() {
