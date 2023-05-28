@@ -149,17 +149,6 @@ public class Lista_user {
         }
     }
 
-    public void añadir_coordenada(int posicion, String nombre, int id, int x, int y) {//Método para agregar las coordenadas del cliente y que luego se pondrá en el gráfico del grafo
-        if (first == null) {
-            first = last = new Nodo_user(posicion, nombre, id);
-        } else {
-            Nodo_user nuevo = new Nodo_user(posicion, nombre, id, x, y);
-            getLast().enlazar_siguiente(nuevo);
-            setLast(null);
-            setLast(nuevo);
-        }
-        tamaño++;
-    }
 
     public Nodo_user obtener_nodos(int pos) {//Obtener el nodo en la respectiva posición que se pasa como parámetro
         Nodo_user aux = first;
