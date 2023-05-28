@@ -24,8 +24,6 @@ public class Nodo_user {
     public Nodo_user(int posicion, String nombre, int id, int x, int y) {
         this.siguiente = null;
         this.posicion = posicion;
-        this.x = x;
-        this.y = y;
         this.nombre = nombre;
         this.id = id;
     }
