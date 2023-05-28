@@ -2,31 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto1.EDD;
+package Clases;
 
 /**
  *
  * @author andresrivas
  */
-public class Nodo_relation {
+public class NodoRelation {
     
-    private Nodo_relation siguiente;
+    private NodoRelation siguiente;
     private int user1;
     private int user2;
     private int tiempo;
 
-    public Nodo_relation(int user1, int user2, int tiempo) {
+    public NodoRelation(int user1, int user2, int tiempo) {
         this.siguiente = null;
         this.user1 = user1;
         this.user2 = user2;
         this.tiempo = tiempo;
     }
 
-    public Nodo_relation getSiguiente() {
+    public NodoRelation getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(Nodo_relation siguiente) {
+    public void setSiguiente(NodoRelation siguiente) {
         this.siguiente = siguiente;
     }
 
@@ -54,7 +54,7 @@ public class Nodo_relation {
         this.tiempo = tiempo;
     }
     
-    public void enlazar_siguiente(Nodo_relation siguiente) {
+    public void enlazarSiguiente(NodoRelation siguiente) {
         this.siguiente = siguiente;
     }
 }

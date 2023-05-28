@@ -2,36 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto1.EDD;
+package Clases;
 
 /**
  *
  * @author andresrivas
  */
-public class Lista_relation {
+public class ListaRelation {
     
-    private Nodo_relation first;
-    private Nodo_relation last;
+    private NodoRelation first;
+    private NodoRelation last;
     private int tamaño;
 
-    public Lista_relation() {
+    public ListaRelation() {
         this.first = this.last = null;
         this.tamaño = 0;
     }
 
-    public Nodo_relation getFirst() {
+    public NodoRelation getFirst() {
         return first;
     }
 
-    public void setFirst(Nodo_relation first) {
+    public void setFirst(NodoRelation first) {
         this.first = first;
     }
 
-    public Nodo_relation getLast() {
+    public NodoRelation getLast() {
         return last;
     }
 
-    public void setLast(Nodo_relation last) {
+    public void setLast(NodoRelation last) {
         this.last = last;
     }
 
@@ -43,20 +43,20 @@ public class Lista_relation {
         this.tamaño = tamaño;
     }
     
-    public void añadir_elemento(int user1, int user2, int tiempo) {//Método para añadir elemento en la lista
+    public void añadirElemento(int user1, int user2, int tiempo) {//Método para añadir elemento en la lista
         if (first == null) {
-            first = last = new Nodo_relation(user1, user2, tiempo);
+            first = last = new NodoRelation(user1, user2, tiempo);
         } else {
-            Nodo_relation nuevo = new Nodo_relation(user1, user2, tiempo);
-            getLast().enlazar_siguiente(nuevo);
+            NodoRelation nuevo = new NodoRelation(user1, user2, tiempo);
+            getLast().enlazarSiguiente(nuevo);
             setLast(null);
             setLast(nuevo);
         }
         tamaño++;
     }
 
-    public void imprimir_lista() {//Método para imprimir la lisa
-        Nodo_relation temp = first;
+    public void imprimirLista() {//Método para imprimir la lisa
+        NodoRelation temp = first;
         for (int i = 0; i < tamaño; i++) {
             String string = temp.getUser1() + ",";
             string = string + temp.getUser2()+ ",";
