@@ -4,17 +4,85 @@
  */
 package Interfaces;
 
+
+import Clases.MatrizDeAdyacencia;
+import Clases.NodoRelation;
+import Clases.NodoUser;
+import Clases.Grafo;
+import Clases.GraficoGrafo;
+import static Interfaces.Menu.listaRelation;
+import static Interfaces.Menu.listaUser;
+import java.util.Random;
+import javax.swing.JOptionPane;
 /**
  *
  * @author andresrivas
  */
 public class MostrarGrafo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MostrarGrafo
-     */
+    public static GraficoGrafo mapaGrafo = new GraficoGrafo();
+    
     public MostrarGrafo() {
         initComponents();
+        try{
+            this.setLocationRelativeTo(null);
+            Grafo grafo = new Grafo();
+            mapaGrafo.ValoresIniciales();
+            PanelGrafo.removeAll();
+            PanelGrafo.repaint();
+            grafo.listaRelation = listaRelation;
+            grafo.vectorUser = actVectorUser();
+            grafo.cantidadUser = grafo.vectorUser.length;
+            mapaGrafo = getMapGrafo();
+            NodoRelation aux = grafo.listaRelation.getFirst();
+            for (int i = 0; i < grafo.listaRelation.getTamaño(); i++) {
+                int user1 = aux.getUser1();
+                int user2 = aux.getUser2();
+                mapaGrafo.relationGrafo.insertLast(user1, user2, mapaGrafo.userGrafo.obtenerNodos(user1 - 1), mapaGrafo.userGrafo.obtenerNodos(user2 - 1), aux.getTiempo());
+                aux = aux.getSiguiente();
+            }
+            grafo.ActualizarMatriz();
+            mapaGrafo.Pintar(PanelGrafo.getGraphics());
+            mapaGrafo.Pintar(PanelGrafo.getGraphics());
+        }catch (Exception err) {
+            JOptionPane.showMessageDialog(null, "Hubo un error. Se le redirigira al menu.");
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            this.dispose();
+        }
+    }
+    
+    public NodoUser[] actVectorUser() {//Método para obtener Vector user
+        NodoUser[] vectorUser = new NodoUser[listaUser.getTamaño()];
+        NodoUser aux1 = listaUser.getFirst();
+        for (int i = 0; i < listaUser.getTamaño(); i++) {
+            vectorUser[i] = aux1;
+            aux1 = aux1.getSiguiente();
+        }
+        return vectorUser;
+    }
+
+    public NodoRelation[] actVectorRelatiion() {//Método para obtenr el vector relation
+        NodoRelation[] vectorRelation = new NodoRelation[listaRelation.getTamaño()];
+        NodoRelation aux2 = listaRelation.getFirst();
+        for (int i = 0; i < listaRelation.getTamaño(); i++) {
+            vectorRelation[i] = aux2;
+            aux2 = aux2.getSiguiente();
+        }
+        return vectorRelation;
+    }
+
+    public GraficoGrafo getMapGrafo() {//Obtener el mapa del grafo para graficarlo
+        GraficoGrafo almacen = new GraficoGrafo();
+        NodoUser aux = listaUser.getFirst();
+        for (int i = 0; i < listaUser.getTamaño(); i++) {
+            Random random = new Random();
+            int x = (random.nextInt(860) + 35);
+            int y = (random.nextInt(440) + 25);
+            almacen.userGrafo.añadirCoordenada(aux.getPosicion(), aux.getNombre(), aux.getId(), x, y);
+            aux = aux.getSiguiente();
+        }
+        return almacen;
     }
 
     /**
@@ -26,21 +94,64 @@ public class MostrarGrafo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        Grafo = new javax.swing.JButton();
+        Exit = new javax.swing.JButton();
+        PanelGrafo = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Grafo.setBackground(new java.awt.Color(255, 255, 153));
+        Grafo.setText("Mostrar Grafo");
+        Grafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GrafoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+
+        Exit.setBackground(new java.awt.Color(255, 0, 0));
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+
+        javax.swing.GroupLayout PanelGrafoLayout = new javax.swing.GroupLayout(PanelGrafo);
+        PanelGrafo.setLayout(PanelGrafoLayout);
+        PanelGrafoLayout.setHorizontalGroup(
+            PanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        PanelGrafoLayout.setVerticalGroup(
+            PanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
+
+        jPanel1.add(PanelGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 230));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ExitActionPerformed
+
+    private void GrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GrafoActionPerformed
+        mapaGrafo.Pintar(PanelGrafo.getGraphics());
+    }//GEN-LAST:event_GrafoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +189,9 @@ public class MostrarGrafo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Exit;
+    private javax.swing.JButton Grafo;
+    private javax.swing.JPanel PanelGrafo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

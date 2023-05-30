@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
-
+import Clases.*;
 /**
  *
  * @author andresrivas
@@ -17,6 +17,9 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+    public static ListaUser listaUser = new ListaUser();
+    public static ListaRelation listaRelation = new ListaRelation();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +56,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setText("Red Social");
 
         MostrarGrafo.setText("Mostrar Grafo");
+        MostrarGrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarGrafoActionPerformed(evt);
+            }
+        });
 
         MostrarIslas.setText("Mostrar Islas");
 
@@ -108,6 +116,12 @@ public class Menu extends javax.swing.JFrame {
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_CloseActionPerformed
+
+    private void MostrarGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarGrafoActionPerformed
+        MostrarGrafo graf = new MostrarGrafo();
+        graf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_MostrarGrafoActionPerformed
 
     /**
      * @param args the command line arguments

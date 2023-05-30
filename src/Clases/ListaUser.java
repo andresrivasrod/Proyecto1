@@ -128,7 +128,7 @@ public class ListaUser {
         }
     }
 
-    public void insertar_ordenado(NodoUser user) {//Insertar un elemento y que la lista ya esté ordenada 
+    public void insertarOrdenado(NodoUser user) {//Insertar un elemento y que la lista ya esté ordenada 
         NodoUser nuevoUser = new NodoUser(user.getPosicion(), user.getNombre(), user.getId());
         if (estaVacio()) {
             this.agregarAlInicio(user);
@@ -148,6 +148,19 @@ public class ListaUser {
             }
         }
     }
+    
+    public void añadirCoordenada(int posicion, String nombre,int id, int x, int y) {//Método para agregar las coordenadas del cliente y que luego se pondrá en el gráfico del grafo
+        if (first == null) {
+            first = last = new NodoUser(posicion, nombre, id);
+        } else {
+            NodoUser nuevo = new NodoUser(posicion, nombre, id, x, y);
+            getLast().enlazarSiguiente(nuevo);
+            setLast(null);
+            setLast(nuevo);
+        }
+        tamaño++;
+    }
+
 
 
     public NodoUser obtenerNodos(int pos) {//Obtener el nodo en la respectiva posición que se pasa como parámetro

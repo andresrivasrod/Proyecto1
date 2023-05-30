@@ -16,8 +16,8 @@ import java.awt.Graphics2D;
  */
 public class GraficoGrafo {
     
-    ListaUser userGrafo = new ListaUser();
-    ListaArista relationGrafo = new ListaArista();
+    public ListaUser userGrafo = new ListaUser();
+    public ListaArista relationGrafo = new ListaArista();
     
     public void ValoresIniciales() {//Setear valores iniciales
         relationGrafo.setFirst(null);

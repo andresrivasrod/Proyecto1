@@ -9,13 +9,13 @@ package Clases;
  * @author andresrivas
  */
 public class Grafo {
-    int cantidadUser = 0;
-    NodoUser[] vectorUser;
-    int[][] matrizRecorridos;
-    int[][] matrizDistancias;
-    ListaRelation listaRelation = new ListaRelation();
-    ListaUser userGrafo = new ListaUser();
-    ListaArista relationGrafo = new ListaArista();
+    public int cantidadUser = 0;
+    public NodoUser[] vectorUser;
+    public int[][] matrizRecorridos;
+    public int[][] matrizDistancias;
+    public ListaRelation listaRelation = new ListaRelation();
+    public ListaUser userGrafo = new ListaUser();
+    public ListaArista relationGrafo = new ListaArista();
 
     public Grafo() {
 
