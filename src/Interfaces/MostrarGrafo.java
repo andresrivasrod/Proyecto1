@@ -79,7 +79,7 @@ public class MostrarGrafo extends javax.swing.JFrame {
             Random random = new Random();
             int x = (random.nextInt(860) + 35);
             int y = (random.nextInt(440) + 25);
-            almacen.userGrafo.añadirCoordenada(aux.getPosicion(), aux.getNombre(), aux.getId(), x, y);
+            almacen.userGrafo.añadirCoordenada(aux.getNombre(), aux.getId(), x, y);
             aux = aux.getSiguiente();
         }
         return almacen;

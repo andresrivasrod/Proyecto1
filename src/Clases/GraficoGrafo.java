@@ -40,7 +40,7 @@ public class GraficoGrafo {
                 ((Graphics2D) g).setColor(Color.BLACK);
                 Font fuente = new Font("Monospaced", Font.BOLD, 12);
                 g.setFont(fuente);
-                ((Graphics2D) g).drawString((aux.getPosicion() + "." + aux.getNombre()), aux.getX(), aux.getY());
+                ((Graphics2D) g).drawString((aux.getNombre()), aux.getX(), aux.getY());
                 aux = aux.getSiguiente();
             }
         }

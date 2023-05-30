@@ -4,6 +4,12 @@
  */
 package Interfaces;
 import Clases.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 /**
  *
  * @author andresrivas
@@ -20,6 +26,134 @@ public class Menu extends javax.swing.JFrame {
     
     public static ListaUser listaUser = new ListaUser();
     public static ListaRelation listaRelation = new ListaRelation();
+    
+    public boolean validarEspacio(String palabra) {//Método para validar que no hayan solo espacios
+        int contador = 0;
+        for (int i = 0; i < palabra.length(); i++) {
+            char c = palabra.charAt(i);
+            if (c == ' ') {
+                contador += 0;
+            } else {
+                contador += 1;
+            }
+        }
+        return (contador == 0);
+    }
+    
+    public void leerTxt() {//Método para leer el archivo txt
+        try {
+            ListaUser listaUser1 = new ListaUser();
+            ListaRelation listaRelation1 = new ListaRelation();
+            String line;
+            int caso = -1;
+            int user1, user2, tiempo;
+            String path = "test\\usuarios.txt";
+            File file = new File(path);
+
+            try {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null) {
+                    if (line.toLowerCase().equals("usuarios")) {
+                        caso = 0;
+                    } else if (!line.isEmpty() && !validarEspacio(line) && !"\n".equals(line) && caso == 0 && line.contains(",")) {
+                        String[] datosUser = line.split(",");
+                        listaUser1.añadirElemento(datosUser[1], Integer.parseInt(datosUser[0]));
+                    } else if (line.toLowerCase().equals("relaciones")) {
+                        caso = 1;
+                    } else if (!line.isEmpty() && !validarEspacio(line) && !"\n".equals(line) && caso == 1 && line.contains(",")) {
+                        String[] datosRlation = line.split(",");
+                        user1 = Integer.parseInt(datosRlation[0]);
+                        user2 = Integer.parseInt(datosRlation[1]);
+                        tiempo = Integer.parseInt(datosRlation[2]);
+                        listaRelation1.añadirElemento(user1, user2, tiempo);
+                    }
+                }
+                br.close();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Hubo un error al leer el archivo");
+            }
+            listaUser = listaUser1;
+            listaRelation = listaRelation1;
+            if (listaRelation.getTamaño() > 0){
+                NodoRelation aux = listaRelation.getFirst();
+                boolean tiempoCero = false;
+                for (int i = 0; i < listaRelation.getTamaño(); i++) {
+                    if (aux.getTiempo() == 0){
+                        tiempoCero = true;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                if (tiempoCero){
+                    JOptionPane.showMessageDialog(null, "Uno de los tiempos de amistad es 0, se vaciara el txt para corregir esto.");
+                    vaciarTxt();
+                    leerTxt();
+                }
+            }
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(null, "Hubo un error al leer el archivo. Se vaciara para corregir.");
+            vaciarTxt();
+            leerTxt();
+        }
+    }
+
+    public void vaciarTxt() {//Método para eliminar el contenido del txt
+        String textoBase = "usuarios\n" +
+"121, @Pepe_Gónzales\n" +
+"254, @StephaniaCominos\n" +
+"365, @AndreaStanislao\n" +
+"412, @Josefina_La_Sifrina\n" +
+"512, @RosaMosa\n" +
+"231, @EduardoPetardo\n" +
+"123, @EnriqueManrique\n" +
+"129, @casanova23\n" +
+"870, @venepositivo\n" +
+"758, @yosoylatorre\n" +
+"578, @pitiypo\n" +
+"909, @obiwan123\n" +
+"893, @caribu_sol\n" +
+"467, @trapos232\n" +
+"788, @bandido121\n" +
+"239, @justiciero11\n" +
+"443, @fuerza_bruta\n" +
+"907, @Presentesiempre\n" +
+"relaciones\n" +
+"121, 254, 7\n" +
+"121, 909, 8\n" +
+"254,909,5\n" +
+"909, 893, 5\n" +
+"254, 893, 1\n" +
+"893, 129, 3\n" +
+"129, 512, 10\n" +
+"512, 412, 2\n" +
+"893, 412, 4\n" +
+"231, 870, 5\n" +
+"231, 123, 1\n" +
+"123, 870, 15\n" +
+"123, 467, 6\n" +
+"788, 239, 7\n" +
+"788, 443, 11\n" +
+"239, 443, 6\n" +
+"239, 907, 3\n" +
+"443, 907, 9\n" +
+"788, 412, 7\n" +
+"870, 578, 7\n" +
+"870, 758, 1\n" +
+"758, 365, 9\n" +
+"578, 365, 4";
+        try {
+            PrintWriter pw = new PrintWriter("test\\usuarios.txt");
+            pw.println(textoBase);
+            pw.close();
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(null, "Error al vaciar el repositorio.");
+        }
+
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

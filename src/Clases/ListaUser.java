@@ -47,11 +47,11 @@ public class ListaUser {
         this.tamaño = tamaño;
     }
     
-    public void añadirElemento(int posicion, String nombre, int id) {//Insertar un elemento de la lista en cualquier posición
+    public void añadirElemento(String nombre, int id) {//Insertar un elemento de la lista en cualquier posición
         if (first == null) {
-            first = last = new NodoUser(posicion, nombre, id);
+            first = last = new NodoUser(nombre, id);
         } else {
-            NodoUser nuevo = new NodoUser(posicion, nombre, id);
+            NodoUser nuevo = new NodoUser(nombre, id);
             getLast().enlazarSiguiente(nuevo);
             setLast(null);
             setLast(nuevo);
@@ -62,8 +62,7 @@ public class ListaUser {
     public void imprimirLista() {// Método para imprimir los elementos de la lista
         NodoUser temp = first;
         for (int i = 0; i < tamaño; i++) {
-            String string = temp.getPosicion() + ",";
-            string = string + temp.getNombre() + ",";
+            String string = temp.getNombre() + ",";
             string = string + temp.getId() + ",";
             System.out.println(string);
             temp = temp.getSiguiente();
@@ -71,7 +70,7 @@ public class ListaUser {
     }
 
     public void agregarAlInicio(NodoUser user) {//Método par insertar un elemento al inicio
-        NodoUser nuevo = new NodoUser(user.getPosicion(), user.getNombre(), user.getId());
+        NodoUser nuevo = new NodoUser(user.getNombre(), user.getId());
         if (estaVacio()) {
             first = nuevo;
             last = nuevo;
@@ -84,7 +83,7 @@ public class ListaUser {
     }
 
     public void agregarAlFinal(NodoUser user) {//Insertar un elemento al final
-        NodoUser nuevo = new NodoUser(user.getPosicion(), user.getNombre(), user.getId());
+        NodoUser nuevo = new NodoUser(user.getNombre(), user.getId());
         if (estaVacio()) {
             agregarAlInicio(user);
         } else {
@@ -95,7 +94,7 @@ public class ListaUser {
     }
 
     public void insertar(int index, NodoUser user) {//Insertar un elemento en cualquier posición
-        NodoUser nuevo = new NodoUser(user.getPosicion(), user.getNombre(), user.getId());
+        NodoUser nuevo = new NodoUser(user.getNombre(), user.getId());
         if (estaVacio()) {
             first = nuevo;
             last = nuevo;
@@ -127,33 +126,12 @@ public class ListaUser {
             }
         }
     }
-
-    public void insertarOrdenado(NodoUser user) {//Insertar un elemento y que la lista ya esté ordenada 
-        NodoUser nuevoUser = new NodoUser(user.getPosicion(), user.getNombre(), user.getId());
-        if (estaVacio()) {
-            this.agregarAlInicio(user);
-        } else {
-            NodoUser aux = first;
-            for (int i = 0; i < (tamaño + 1); i++) {
-                if (nuevoUser.getPosicion() < aux.getPosicion()) {
-                    this.insertar(i, nuevoUser);
-                    break;
-                }
-                if (aux.getSiguiente() == null) {
-                    this.agregarAlFinal(nuevoUser);
-                    break;
-                }
-
-                aux = aux.getSiguiente();
-            }
-        }
-    }
     
-    public void añadirCoordenada(int posicion, String nombre,int id, int x, int y) {//Método para agregar las coordenadas del cliente y que luego se pondrá en el gráfico del grafo
+    public void añadirCoordenada(String nombre,int id, int x, int y) {//Método para agregar las coordenadas del cliente y que luego se pondrá en el gráfico del grafo
         if (first == null) {
-            first = last = new NodoUser(posicion, nombre, id);
+            first = last = new NodoUser(nombre, id);
         } else {
-            NodoUser nuevo = new NodoUser(posicion, nombre, id, x, y);
+            NodoUser nuevo = new NodoUser(nombre, id, x, y);
             getLast().enlazarSiguiente(nuevo);
             setLast(null);
             setLast(nuevo);
