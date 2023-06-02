@@ -22,11 +22,12 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        leerTxt();
     }
     
     public static ListaUser listaUser = new ListaUser();
     public static ListaRelation listaRelation = new ListaRelation();
-    public static Grafo grafo = new Grafo(listaUser, listaRelation );
+    public static Grafo grafo = new Grafo(listaUser, listaRelation);
     
     public boolean validarEspacio(String palabra) {//Método para validar que no hayan solo espacios
         int contador = 0;

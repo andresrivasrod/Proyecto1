@@ -26,7 +26,7 @@ public class MostrarGrafo extends javax.swing.JFrame {
         initComponents();
         try{
             this.setLocationRelativeTo(null);
-            Grafo grafo = new Grafo(listaUser, listaRelation);
+            Grafo grafo = new Grafo(listaUser,listaRelation);
             mapaGrafo.ValoresIniciales();
             PanelGrafo.removeAll();
             PanelGrafo.repaint();
