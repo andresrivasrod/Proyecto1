@@ -29,7 +29,7 @@ public class Funciones {
         this.cantidadDePuentes = 0;
     }
 
-    public void mostrarCantidadDeIslasDFS() { //Funcion que muestra la cantidad de de islas usando el metodo dfs
+    public String mostrarCantidadDeIslasDFS() { //Funcion que muestra la cantidad de de islas usando el metodo dfs
         int cantidadDeIslas = 0;
         for (int i = 0; i < grafo.obtenerNumeroDeVertices(); i++) {
             if (!visitado[i]) {
@@ -37,10 +37,10 @@ public class Funciones {
                 dfs(i);
             }
         }
-        System.out.println("La cantidad de islas es: " + cantidadDeIslas);
+        return "La cantidad de islas es: " + cantidadDeIslas;
     }
 
-    public void mostrarCantidadDeIslasBFS() { //Funcion que muestra la cantidad de de islas usando el metodo bfs
+    public String mostrarCantidadDeIslasBFS() { //Funcion que muestra la cantidad de de islas usando el metodo bfs
         int cantidadDeIslas = 0;
         for (int i = 0; i < grafo.obtenerNumeroDeVertices(); i++) {
             if (!visitado[i]) {
@@ -48,20 +48,27 @@ public class Funciones {
                 bfs(i);
             }
         }
-        System.out.println("La cantidad de islas es: " + cantidadDeIslas);
+        return "La cantidad de islas es: " + cantidadDeIslas;
     }
 
-    public void identificarPuentes() { //Funcion que identifica los puentes usando el metodo dfs
+    public String identificarPuentes() { //Funcion que identifica los puentes usando el metodo dfs
         for (int i = 0; i < grafo.obtenerNumeroDeVertices(); i++) {
             if (!visitado[i]) {
                 dfsPuentes(i, -1);
             }
         }
-        System.out.print("Los puentes son: ");
+        return "Los puentes son: "+ nombrarPuentes();    
+    }    
+    
+    public String nombrarPuentes(){
+        String puen = "";
         for (int j = 0; j < cantidadDePuentes; j++) {
-            System.out.print(puentes[j] + " ");
+            puen += puentes[j] + " ";
         }
-    }
+        return puen;
+    } 
+       
+    
 
     private void dfs(int actual) { //Funcion dfs
         visitado[actual] = true;

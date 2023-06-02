@@ -17,8 +17,9 @@ public class Grafo {
     public ListaUser userGrafo = new ListaUser();
     public ListaArista relationGrafo = new ListaArista();
 
-    public Grafo() {
-
+    public Grafo(ListaUser userGrafo, ListaRelation listaRelation) {
+        this.userGrafo = userGrafo;
+        this.listaRelation = listaRelation;
     }
 
     public void RellenarMatriz() {//Procedimiento para rellenar la matriz

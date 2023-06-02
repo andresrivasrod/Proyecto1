@@ -26,6 +26,7 @@ public class Menu extends javax.swing.JFrame {
     
     public static ListaUser listaUser = new ListaUser();
     public static ListaRelation listaRelation = new ListaRelation();
+    public static Grafo grafo = new Grafo(listaUser, listaRelation );
     
     public boolean validarEspacio(String palabra) {//Método para validar que no hayan solo espacios
         int contador = 0;
@@ -208,6 +209,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         MostrarPuentes.setText("Mostrar Puentes");
+        MostrarPuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarPuentesActionPerformed(evt);
+            }
+        });
 
         MostrarIslasBfs.setText("Mostrar Islas (BFS)");
         MostrarIslasBfs.addActionListener(new java.awt.event.ActionListener() {
@@ -278,12 +284,22 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MostrarGrafoActionPerformed
 
     private void MostrarIslasDfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarIslasDfsActionPerformed
-        // TODO add your handling code here:
+        MostrarIslasDFS islas = new MostrarIslasDFS();
+        islas.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_MostrarIslasDfsActionPerformed
 
     private void MostrarIslasBfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarIslasBfsActionPerformed
-        // TODO add your handling code here:
+        MostrarIslasBFS islas = new MostrarIslasBFS();
+        islas.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_MostrarIslasBfsActionPerformed
+
+    private void MostrarPuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarPuentesActionPerformed
+        MostrarPuentes puentes = new MostrarPuentes();
+        puentes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_MostrarPuentesActionPerformed
 
     /**
      * @param args the command line arguments
