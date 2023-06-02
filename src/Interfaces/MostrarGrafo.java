@@ -113,7 +113,7 @@ public class MostrarGrafo extends javax.swing.JFrame {
                 GrafoActionPerformed(evt);
             }
         });
-        jPanel1.add(Grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        jPanel1.add(Grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, -1, -1));
 
         Exit.setBackground(new java.awt.Color(255, 0, 0));
         Exit.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,22 +123,22 @@ public class MostrarGrafo extends javax.swing.JFrame {
                 ExitActionPerformed(evt);
             }
         });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, -1));
 
         javax.swing.GroupLayout PanelGrafoLayout = new javax.swing.GroupLayout(PanelGrafo);
         PanelGrafo.setLayout(PanelGrafoLayout);
         PanelGrafoLayout.setHorizontalGroup(
             PanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         PanelGrafoLayout.setVerticalGroup(
             PanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PanelGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 230));
+        jPanel1.add(PanelGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 810, 360));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

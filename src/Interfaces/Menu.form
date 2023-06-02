@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JButton" name="MostrarIslasDfs1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar Islas (DFS)"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -58,11 +65,14 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="MostrarGrafo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="MostrarPuentes" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="MostrarIslasDfs" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
-                  <Component id="MostrarIslas" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="MostrarPuentes" min="-2" max="-2" attributes="0"/>
+                      <Component id="MostrarIslasBfs" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -80,11 +90,14 @@
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="MostrarGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="MostrarIslas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MostrarPuentes" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="MostrarPuentes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="42" pref="117" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="MostrarIslasDfs" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MostrarIslasBfs" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="129" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,15 +135,26 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarGrafoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="MostrarIslas">
+        <Component class="javax.swing.JButton" name="MostrarIslasDfs">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar Islas"/>
+            <Property name="text" type="java.lang.String" value="Mostrar Islas (DFS)"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarIslasDfsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MostrarPuentes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostrar Puentes"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="MostrarIslasBfs">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mostrar Islas (BFS)"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarIslasBfsActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

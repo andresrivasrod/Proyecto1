@@ -164,13 +164,17 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MostrarIslasDfs1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         Close = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         MostrarGrafo = new javax.swing.JButton();
-        MostrarIslas = new javax.swing.JButton();
+        MostrarIslasDfs = new javax.swing.JButton();
         MostrarPuentes = new javax.swing.JButton();
+        MostrarIslasBfs = new javax.swing.JButton();
+
+        MostrarIslasDfs1.setText("Mostrar Islas (DFS)");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -196,9 +200,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        MostrarIslas.setText("Mostrar Islas");
+        MostrarIslasDfs.setText("Mostrar Islas (DFS)");
+        MostrarIslasDfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarIslasDfsActionPerformed(evt);
+            }
+        });
 
         MostrarPuentes.setText("Mostrar Puentes");
+
+        MostrarIslasBfs.setText("Mostrar Islas (BFS)");
+        MostrarIslasBfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarIslasBfsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -218,10 +234,12 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MostrarGrafo)
-                    .addComponent(MostrarPuentes))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(MostrarIslas)
-                .addGap(88, 88, 88))
+                    .addComponent(MostrarIslasDfs))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MostrarPuentes)
+                    .addComponent(MostrarIslasBfs))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,10 +254,12 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MostrarGrafo)
-                    .addComponent(MostrarIslas))
-                .addGap(50, 50, 50)
-                .addComponent(MostrarPuentes)
-                .addGap(42, 117, Short.MAX_VALUE))
+                    .addComponent(MostrarPuentes))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MostrarIslasDfs)
+                    .addComponent(MostrarIslasBfs))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
@@ -256,6 +276,14 @@ public class Menu extends javax.swing.JFrame {
         graf.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_MostrarGrafoActionPerformed
+
+    private void MostrarIslasDfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarIslasDfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MostrarIslasDfsActionPerformed
+
+    private void MostrarIslasBfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarIslasBfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MostrarIslasBfsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,7 +323,9 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Close;
     private javax.swing.JButton MostrarGrafo;
-    private javax.swing.JButton MostrarIslas;
+    private javax.swing.JButton MostrarIslasBfs;
+    private javax.swing.JButton MostrarIslasDfs;
+    private javax.swing.JButton MostrarIslasDfs1;
     private javax.swing.JButton MostrarPuentes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
