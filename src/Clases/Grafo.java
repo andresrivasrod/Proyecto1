@@ -54,11 +54,23 @@ public class Grafo {
         }
     }
 
-    int[] obtenerAdyacentes(int actual) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    int[] obtenerAdyacentes(int vertice) { //Obtener los adyacentes del grafo
+        int[] adyacentes = new int[cantidadUser];
+        int cantidadAdyacentes = 0;
+        for (int i = 0; i < cantidadUser; i++) {
+            if (matrizDistancias[vertice][i] != 0 && matrizDistancias[vertice][i] != 999999999) {
+                adyacentes[cantidadAdyacentes] = i;
+                cantidadAdyacentes++;
+            }
+        }
+        int[] resultado = new int[cantidadAdyacentes];
+        for (int i = 0; i < cantidadAdyacentes; i++) {
+            resultado[i] = adyacentes[i];
+        }
+        return resultado;
     }
 
-    int obtenerNumeroDeVertices() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    int obtenerNumeroDeVertices() { //Obtener los numeros de vertices del grafo
+        return cantidadUser;
     }
 }
