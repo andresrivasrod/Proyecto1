@@ -116,7 +116,6 @@ public class MostrarGrafo extends javax.swing.JFrame {
         jPanel1.add(Grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, -1, -1));
 
         Exit.setBackground(new java.awt.Color(255, 0, 0));
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

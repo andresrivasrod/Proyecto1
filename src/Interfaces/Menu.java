@@ -269,6 +269,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(129, Short.MAX_VALUE))
         );
 
+        Close.getAccessibleContext().setAccessibleDescription("");
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();

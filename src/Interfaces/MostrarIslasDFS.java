@@ -55,7 +55,6 @@ public class MostrarIslasDFS extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 270));
 
         Exit.setBackground(new java.awt.Color(255, 0, 0));
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
